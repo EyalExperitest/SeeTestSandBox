@@ -36,7 +36,7 @@ public class LoginLogoutAndroid {
 
     @Test(invocationCount = 1000,alwaysRun = true)
     public void testLoginLogout(){
-        client.setDevice("adb:samsung GT-I9301I");
+        client.setDevice("adb:HUAWEI EVA-L09");
         client.launch("com.experitest.ExperiBank/.LoginActivity", true, true);
         client.elementSendText("NATIVE", "hint=Username", 0, "company");
         client.elementSendText("NATIVE", "hint=Password", 0, "company");

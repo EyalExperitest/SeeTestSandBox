@@ -34,9 +34,9 @@ public class LoginLogoutIOS {
         client.setReporter("xml", "reports", "LoginLogoutIOS");
     }
 
-    @Test(invocationCount = 1000,alwaysRun = true)
+    @Test(invocationCount = 1,alwaysRun = true)
     public void testLoginLogout(){
-        client.setDevice("ios_app:SE pink");
+        client.setDevice("ios_app:iPhone 8plus B0144");
         client.launch("com.experitest.ExperiBank", true, true);
         client.deviceAction("Portrait");
         client.elementSendText("NATIVE", "placeholder=Username", 0, "company");
