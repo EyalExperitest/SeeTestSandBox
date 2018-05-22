@@ -1,12 +1,10 @@
 package imported;
 
-/**
- * Created by eyal.neumann on 1/30/2018.
- */
 // Insert your package here
 import com.experitest.client.*;
-import org.json.JSONObject;
-import org.junit.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class SeeTestTest {
@@ -14,34 +12,24 @@ public class SeeTestTest {
     protected Client client = null;
     protected GridClient gridClient = null;
 
-    @Before
+    @BeforeMethod(alwaysRun = true)
     public void setUp() {
         // In case your user is assigned to a single project leave projectName as empty string, otherwise please specify the project name
         gridClient = new GridClient("admin", "Experitest2012", "", "https://eyalneumann.experitest.local:8091");
-        client = gridClient.lockDeviceForExecution("SA-21575", "@serialnumber='87345845f042238c45d80e66c7b95b48766337eb'", 120, TimeUnit.MINUTES.toMillis(2));
-        client.setReporter("xml", "reports" , "SA-21575");
+        client = gridClient.lockDeviceForExecution("Untitled", "@serialnumber='b386670b67fa917c2a65a9f2d70470347457678b'", 120, TimeUnit.MINUTES.toMillis(2));
+        client.setReporter("xml", "reports" , "LongRun");
     }
 
-    @Test
+    @Test(invocationCount = 30,alwaysRun = true)
     public void testSeeTestTest() {
-        String visualDump = client.getVisualDump("Native");
-        System.out.println(visualDump);
-        //client.install("cloud:com.experitest.ExperiBank", true, true);
+        client.getVisualDump("Native");
         client.launch("com.experitest.ExperiBank", true, true);
-        client.deviceAction("Portrait");
-        client.elementSendText("NATIVE", "placeholder=Username", 0, "company");
-        if(client.waitForElement("NATIVE", "placeholder=Password", 0, 30000)){
-            // If statement
-        }
-        client.elementSendText("NATIVE", "placeholder=Password", 0, "company");
-        if(client.waitForElement("NATIVE", "accessibilityLabel=loginButton", 0, 30000)){
-            // If statement
-        }
-        client.click("NATIVE", "accessibilityLabel=loginButton", 0, 1);
-
+        client.elementSendText("NATIVE", "text=Username", 0, "company");
+        client.elementSendText("NATIVE", "text=Password", 0, "company");
+        client.click("NATIVE", "text=Login", 0, 1);
     }
 
-    @After
+    @AfterMethod
     public void tearDown() {
         client.generateReport(false);
         client.releaseClient();

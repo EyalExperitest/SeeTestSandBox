@@ -10,7 +10,86 @@ repositories {
     maven { url "http://192.168.2.13/repo/"  }
 }
 
+compileJava.options.encoding = 'UTF-8'
+
+
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
-    compile "com.experitest:seetest-client:11.4"
+    compile group: 'org.testng', name: 'testng', version: '6.14.2'
+
+    //compile "com.experitest:seetest-client:11.4"
+    compile files(
+
+//            ********************** SeeTest 11.6  Jars
+
+
+//            'C:/Program Files (x86)/Experitest/SeeTest_11_6/clients/java/hamcrest-core-1.3.jar',
+//            'C:/Program Files (x86)/Experitest/SeeTest_11_6/clients/java/httpclient-4.5.2.jar',
+//            'C:/Program Files (x86)/Experitest/SeeTest_11_6/clients/java/httpcore-4.4.4.jar',
+//            'C:/Program Files (x86)/Experitest/SeeTest_11_6/clients/java/httpmime-4.5.2.jar',
+//            'C:/Program Files (x86)/Experitest/SeeTest_11_6/clients/java/imageClient.jar',
+//            'C:/Program Files (x86)/Experitest/SeeTest_11_6/clients/java/junit-4.12.jar',
+//            'C:/Program Files (x86)/Experitest/SeeTest_11_6/clients/java/manager-client-11.6.jar',
+//            'C:/Program Files (x86)/Experitest/SeeTest_11_6/clients/java/manager-client-api-11.6.jar',
+//            'C:/Program Files (x86)/Experitest/SeeTest_11_6/clients/java/manager-client-standalone-without-unittest-11.6.jar',
+//            'C:/Program Files (x86)/Experitest/SeeTest_11_6/clients/java/mobile-webdriver.jar',
+//            'C:/Program Files (x86)/Experitest/SeeTest_11_6/clients/java/selenium-api-2.42.2.jar',
+//            'C:/Program Files (x86)/Experitest/SeeTest_11_6/clients/java/selenium-support-2.44.0.jar',
+//            'C:/Program Files (x86)/Experitest/SeeTest_11_6/clients/java/ws-commons-util-1.0.2.jar',
+//            'C:/Program Files (x86)/Experitest/SeeTest_11_6/clients/java/xmlrpc-client-3.1.2.jar',
+//            'C:/Program Files (x86)/Experitest/SeeTest_11_6/clients/java/xmlrpc-common-3.1.2.jar',
+//            'C:/Program Files (x86)/Experitest/SeeTest_11_6/clients/java/boon-0.33.jar',
+//            'C:/Program Files (x86)/Experitest/SeeTest_11_6/clients/java/commons-codec-1.9.jar',
+//            'C:/Program Files (x86)/Experitest/SeeTest_11_6/clients/java/commons-io-2.4.jar',
+//            'C:/Program Files (x86)/Experitest/SeeTest_11_6/clients/java/commons-logging-1.2.jar'
+
+
+
+
+/*
+//            ********************** SeeTest Branch Jars
+            'C:/Program Files (x86)/Experitest/SeeTest/clients/java/hamcrest-core-1.3.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest/clients/java/httpclient-4.5.2.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest/clients/java/httpcore-4.4.4.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest/clients/java/httpmime-4.5.2.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest/clients/java/imageClient.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest/clients/java/junit-4.12.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest/clients/java/manager-client-11.6.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest/clients/java/manager-client-api-11.6.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest/clients/java/mobile-webdriver.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest/clients/java/selenium-api-2.42.2.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest/clients/java/selenium-support-2.44.0.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest/clients/java/ws-commons-util-1.0.2.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest/clients/java/xmlrpc-client-3.1.2.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest/clients/java/xmlrpc-common-3.1.2.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest/clients/java/boon-0.33.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest/clients/java/commons-codec-1.9.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest/clients/java/commons-io-2.4.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest/clients/java/commons-logging-1.2.jar'
+//          //'C:/Program Files (x86)/Experitest/SeeTest/clients/java/manager-client-standalone-without-unittest-11.7.jar',
+*/
+
+
+//          ********************** SeeTest Trunk Jars
+
+            'C:/Program Files (x86)/Experitest/SeeTest_Trunk/clients/java/ws-commons-util-1.0.2.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest_Trunk/clients/java/xmlrpc-client-3.1.2.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest_Trunk/clients/java/xmlrpc-common-3.1.2.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest_Trunk/clients/java/boon-0.33.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest_Trunk/clients/java/commons-codec-1.9.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest_Trunk/clients/java/commons-io-2.4.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest_Trunk/clients/java/commons-logging-1.2.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest_Trunk/clients/java/hamcrest-core-1.3.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest_Trunk/clients/java/httpclient-4.5.2.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest_Trunk/clients/java/httpcore-4.4.4.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest_Trunk/clients/java/httpmime-4.5.2.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest_Trunk/clients/java/imageClient.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest_Trunk/clients/java/junit-4.12.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest_Trunk/clients/java/manager-client-11.8.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest_Trunk/clients/java/manager-client-api-11.8.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest_Trunk/clients/java/mobile-webdriver.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest_Trunk/clients/java/selenium-api-2.42.2.jar',
+            'C:/Program Files (x86)/Experitest/SeeTest_Trunk/clients/java/selenium-support-2.44.0.jar'
+    )
+
 }

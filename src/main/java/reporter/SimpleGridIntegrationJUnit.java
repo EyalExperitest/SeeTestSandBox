@@ -1,8 +1,11 @@
+/*
 package reporter;
 
+*/
 /**
  * Created by eyal.neumann on 3/8/2018.
- */
+ *//*
+
 
 import com.experitest.client.Client;
 import com.experitest.client.GridClient;
@@ -35,7 +38,7 @@ public class SimpleGridIntegrationJUnit {
         managerPublisher = gridClient.createPublisher(testName.getMethodName(), client);
         PManager.setPublisher(managerPublisher);
 
-        client.setReporter("xml", "reports" , "Reporter Test 001");
+        client.setReporter("xml", "reports" , "Reporter Test 002");
 
     }
 
@@ -60,7 +63,8 @@ public class SimpleGridIntegrationJUnit {
     public void tearDown() throws Exception {
         String generateReport = client.generateReport(false);
         // Add custom report folder
-        managerPublisher.addReportFolder(new File(generateReport));
+        //managerPublisher.addReportFolder(new File(generateReport));
     }
 }
 
+*/
