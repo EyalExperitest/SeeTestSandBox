@@ -12,20 +12,20 @@ import org.testng.annotations.*;
 public class ReporterTest001 {
     private String host = "localhost";
     private int port = 8889;
-    private String projectBaseDirectory = "C:\\Users\\eyal.neumann\\workspace\\project17";
+    //private String projectBaseDirectory = "C:\\Users\\eyal.neumann\\workspace\\project17";
     protected Client client = null;
 
     @BeforeMethod
     public void setUp(){
         client = new Client(host, port, true);
-        client.setProjectBaseDirectory(projectBaseDirectory);
-        client.setReporter("xml", "reports\\reports001", "ReporterTest002");
+        //client.setProjectBaseDirectory(projectBaseDirectory);
+        client.setReporter("pdf", "reports", "ReporterTest002");
         client.setShowImageInReport(true);
     }
 
     @Test(groups = {"seetest"})
     public void testReporterTest001(){
-        client.setDevice("ios_app:iPad(3)");
+        client.setDevice("ios_app:iPad(1)");
         client.startVideoRecord();
         client.startStepsGroup("Set EriBank");
         if(client.uninstall("cloud:com.experitest.ExperiBank")){
@@ -35,7 +35,7 @@ public class ReporterTest001 {
             // If statement
         }
         client.launch("cloud:com.experitest.ExperiBank", true, true);
-        client.startStepsGroup("Login");
+        //client.startStepsGroup("Login");
 
         if(client.waitForElement("NATIVE", "placeholder=Username", 0, 60000)){
             // If statement
@@ -43,10 +43,10 @@ public class ReporterTest001 {
         client.elementSendText("NATIVE", "placeholder=Username", 0, "company");
         client.elementSendText("NATIVE", "placeholder=Password", 0, "company");
         client.click("NATIVE", "accessibilityLabel=loginButton", 0, 1);
-        client.stopVideoRecord();
+        //client.stopVideoRecord();
 
         client.startStepsGroup("MakePayment");
-        client.startVideoRecord();
+        //client.startVideoRecord();
 
         client.click("NATIVE", "accessibilityLabel=makePaymentButton", 0, 1);
         client.elementSendText("NATIVE", "placeholder=Phone", 0, "09876543");
@@ -59,9 +59,9 @@ public class ReporterTest001 {
         client.click("NATIVE", "xpath=//*[@accessibilityLabel='United Kingdom']", 0, 1);
         client.click("NATIVE", "accessibilityLabel=sendPaymentButton", 0, 1);
         client.click("NATIVE", "xpath=//*[@text='Yes']", 0, 1);
-        client.stopVideoRecord();
+        //client.stopVideoRecord();
         client.startStepsGroup("Mortgage Request");
-        client.startVideoRecord();
+        //client.startVideoRecord();
 
         client.click("NATIVE", "accessibilityLabel=Mortgage Request", 0, 1);
         client.elementSendText("NATIVE", "placeholder=First Name", 0, "Eyal");
@@ -81,10 +81,10 @@ public class ReporterTest001 {
         client.click("NATIVE", "xpath=/*//*[@accessibilityLabel='Private Job']", 0, 1);
         client.click("NATIVE", "xpath=/*//*[@accessibilityLabel='500,000']", 0, 1);
         client.click("NATIVE", "xpath=/*//*[@text='Save']", 0, 1);
-        client.stopVideoRecord();
-        client.stopStepsGroup();
+        //client.stopVideoRecord();
+        //client.stopStepsGroup();
 
-        client.setShowPassImageInReport(false);
+        //client.setShowPassImageInReport(false);
         client.click("NATIVE", "accessibilityLabel=Expense Report", 0, 1);
         client.click("NATIVE", "xpath=/*//*[@text='Detail goes here' and (./preceding-sibling::* | ./following-sibling::*)[@text='Expense 0']]", 0, 1);
         client.click("NATIVE", "xpath=/*//*[@text='Detail goes here' and (./preceding-sibling::* | ./following-sibling::*)[@text='Expense 1']]", 0, 1);
@@ -93,7 +93,7 @@ public class ReporterTest001 {
         client.click("NATIVE", "xpath=/*//*[@text='Back']", 0, 1);
 
         client.startStepsGroup("Logout");
-        client.startVideoRecord();
+        //client.startVideoRecord();
 
         client.click("NATIVE", "accessibilityLabel=logoutButton", 0, 1);
         client.click("NATIVE", "placeholder=Username", 0, 1);

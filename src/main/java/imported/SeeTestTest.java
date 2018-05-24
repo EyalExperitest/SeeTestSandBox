@@ -1,5 +1,8 @@
 package imported;
 
+/**
+ * Created by Mac10 on 22/05/2018.
+ */
 // Insert your package here
 import com.experitest.client.*;
 import org.testng.annotations.AfterMethod;
@@ -11,22 +14,22 @@ public class SeeTestTest {
 
     protected Client client = null;
     protected GridClient gridClient = null;
-
-    @BeforeMethod(alwaysRun = true)
+    protected String setReporter;
+    @BeforeMethod
     public void setUp() {
         // In case your user is assigned to a single project leave projectName as empty string, otherwise please specify the project name
-        gridClient = new GridClient("admin", "Experitest2012", "", "https://eyalneumann.experitest.local:8091");
-        client = gridClient.lockDeviceForExecution("Untitled", "@serialnumber='b386670b67fa917c2a65a9f2d70470347457678b'", 120, TimeUnit.MINUTES.toMillis(2));
-        client.setReporter("xml", "reports" , "LongRun");
+        gridClient = new GridClient("eyal", "Experitest2012", "", "http://mastercloud:80");
+        client = gridClient.lockDeviceForExecution("Remote File Test", "@serialnumber='HT51HWV00455'", 120, TimeUnit.MINUTES.toMillis(2));
+        setReporter = client.setReporter("xml", "reports", "Remote File Test");
+        System.out.println("setReporter:"+setReporter);
     }
 
-    @Test(invocationCount = 30,alwaysRun = true)
-    public void testSeeTestTest() {
-        client.getVisualDump("Native");
-        client.launch("com.experitest.ExperiBank", true, true);
-        client.elementSendText("NATIVE", "text=Username", 0, "company");
-        client.elementSendText("NATIVE", "text=Password", 0, "company");
-        client.click("NATIVE", "text=Login", 0, 1);
+    @Test
+    public void testSeeTestTest() throws Exception {
+        String capture = client.capture();
+        System.out.println("Capture:"+capture);
+        client.getRemoteFile(capture,10000,setReporter);
+
     }
 
     @AfterMethod
